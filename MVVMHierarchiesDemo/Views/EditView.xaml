@@ -33,9 +33,12 @@
                 <DatePicker Text="{Binding SelectedPerson.Birthday, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Clicker Count"
-                           Width="100"/>
-                <TextBlock Text="{Binding SelectedPerson.ClickerCount, UpdateSourceTrigger=PropertyChanged}"/>
+                <StackPanel.DataContext>
+                    <ViewModels:EditViewModel/>
+                </StackPanel.DataContext>
+                <Button Content="Click the clicker!"
+                        Width="100"
+                        Command="{Binding ClickerClicked}"/>
             </StackPanel>
         </StackPanel>
     </Grid>
