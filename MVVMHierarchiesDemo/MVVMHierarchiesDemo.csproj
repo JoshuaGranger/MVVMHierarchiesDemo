@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Misc\BindableBase.cs" />
     <Compile Include="Misc\MyICommand.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="ViewModels\DisplayViewModel.cs" />

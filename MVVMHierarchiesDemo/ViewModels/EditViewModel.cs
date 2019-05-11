@@ -17,7 +17,7 @@ namespace MVVMHierarchiesDemo.ViewModels
         // Constructor
         public EditViewModel()
         {
-            ClickerClicked = new MyICommand(OnClickerClicked, CanClickClicker)
+            ClickerClicked = new MyICommand(OnClickerClicked, CanClickClicker);
         }
 
         // Methods

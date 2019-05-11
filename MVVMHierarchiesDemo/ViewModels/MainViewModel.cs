@@ -13,18 +13,21 @@ namespace MVVMHierarchiesDemo.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         // Properties
-        private ObservableCollection<Person> people;
-        public ObservableCollection<Person> People
-        {
-            get { return people; }
-            set { people = value; }
-        }
+        public ObservableCollection<Person> People { get; set; }
 
         private Person selectedPerson;
         public Person SelectedPerson
         {
             get { return selectedPerson; }
-            set { selectedPerson = value; RaisePropertyChanged(nameof(SelectedPerson)); }
+            set
+            {
+                selectedPerson = value;
+                RaisePropertyChanged(nameof(SelectedPerson));
+                RaisePropertyChanged(nameof(SelectedPerson.Name));
+                RaisePropertyChanged(nameof(SelectedPerson.Age));
+                RaisePropertyChanged(nameof(SelectedPerson.Birthday));
+                RaisePropertyChanged(nameof(SelectedPerson.ClickerCount));
+            }
         }
 
         private object leftViewModel;
