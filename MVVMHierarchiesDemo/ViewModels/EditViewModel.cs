@@ -12,11 +12,13 @@ namespace MVVMHierarchiesDemo.ViewModels
     public class EditViewModel : INotifyPropertyChanged
     {
         // Properties
+        public MainViewModel MyMainViewModel { get; }
         public MyICommand ClickerClicked { get; set; }
 
         // Constructor
-        public EditViewModel()
+        public EditViewModel(MainViewModel mvm)
         {
+            MyMainViewModel = mvm;
             ClickerClicked = new MyICommand(OnClickerClicked, CanClickClicker);
         }
 
@@ -29,7 +31,7 @@ namespace MVVMHierarchiesDemo.ViewModels
 
         public void OnClickerClicked()
         {
-            
+            MyMainViewModel.SelectedPerson.ClickerCount += 1;
         }
 
         public bool CanClickClicker()

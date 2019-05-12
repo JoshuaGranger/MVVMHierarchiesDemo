@@ -13,10 +13,12 @@ namespace MVVMHierarchiesDemo.ViewModels
     public class DisplayViewModel : INotifyPropertyChanged
     {
         // Properties
+        public MainViewModel MyMainViewModel { get; }
 
         // Constructor
-        public DisplayViewModel()
+        public DisplayViewModel(MainViewModel mvm)
         {
+            MyMainViewModel = mvm;
         }
 
         // Methods

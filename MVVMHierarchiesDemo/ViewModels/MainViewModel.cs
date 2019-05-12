@@ -23,10 +23,6 @@ namespace MVVMHierarchiesDemo.ViewModels
             {
                 selectedPerson = value;
                 RaisePropertyChanged(nameof(SelectedPerson));
-                RaisePropertyChanged(nameof(SelectedPerson.Name));
-                RaisePropertyChanged(nameof(SelectedPerson.Age));
-                RaisePropertyChanged(nameof(SelectedPerson.Birthday));
-                RaisePropertyChanged(nameof(SelectedPerson.ClickerCount));
             }
         }
 
@@ -51,20 +47,24 @@ namespace MVVMHierarchiesDemo.ViewModels
         public MainViewModel()
         {
             People = new ObservableCollection<Person>();
+
             Person Josh = new Person("Josh");
             Josh.Age = 23;
+
             Person Gabriella = new Person("Gabriella");
             Gabriella.Age = 24;
             Gabriella.Birthday = new DateTime(1995, 04, 03);
+
             Person Someone = new Person("Someone");
             Someone.Age = 13;
+
             People.Add(Josh);
             People.Add(Gabriella);
             People.Add(Someone);
 
             SelectedPerson = People[new Random().Next(People.Count - 1)];
-            LeftViewModel = new EditViewModel();
-            RightViewModel = new DisplayViewModel();
+            LeftViewModel = new EditViewModel(this);
+            RightViewModel = new DisplayViewModel(this);
 
             SwapView = new MyICommand(OnSwapView, CanSwapView);
         }

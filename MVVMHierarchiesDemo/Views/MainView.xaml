@@ -9,9 +9,11 @@
              xmlns:ViewModels="clr-namespace:MVVMHierarchiesDemo.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <UserControl.DataContext>
         <ViewModels:MainViewModel/>
     </UserControl.DataContext>
+    
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type ViewModels:EditViewModel}">
@@ -21,6 +23,7 @@
                 <Views:DisplayView/>
             </DataTemplate>
         </Grid.Resources>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -31,20 +34,23 @@
         </Grid.RowDefinitions>
 
         <ComboBox ItemsSource="{Binding People}"
-                  SelectedItem="{Binding SelectedPerson, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedPerson}"
                   DisplayMemberPath="Name"
                   Grid.Row="0"
                   Grid.Column="0"
                   HorizontalContentAlignment="Center"
                   VerticalContentAlignment="Center"/>
+        
         <Button Command="{Binding SwapView}"
                 Content="Swap views"
                 Width="Auto"
                 Grid.Row="0"
                 Grid.Column="1"/>
+        
         <ContentControl Content="{Binding LeftViewModel}"
                         Grid.Row="1"
                         Grid.Column="0"/>
+        
         <ContentControl Content="{Binding RightViewModel}"
                         Grid.Row="1"
                         Grid.Column="1"/>

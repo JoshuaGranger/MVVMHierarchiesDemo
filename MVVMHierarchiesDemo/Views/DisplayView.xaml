@@ -9,34 +9,34 @@
              xmlns:ViewModels="clr-namespace:MVVMHierarchiesDemo.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <ViewModels:MainViewModel/>
-    </UserControl.DataContext>
+
     <Grid>
         <StackPanel>
-            <StackPanel.DataContext>
-                <ViewModels:MainViewModel/>
-            </StackPanel.DataContext>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name"
                            Width="100"/>
-                <TextBlock Text="{Binding SelectedPerson.Name}"/>
+                <TextBlock Text="{Binding MyMainViewModel.SelectedPerson.Name}"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Age"
                            Width="100"/>
-                <TextBlock Text="{Binding SelectedPerson.Age}"/>
+                <TextBlock Text="{Binding MyMainViewModel.SelectedPerson.Age}"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Birthday"
                            Width="100"/>
-                <TextBlock Text="{Binding SelectedPerson.Birthday}"/>
+                <TextBlock Text="{Binding MyMainViewModel.SelectedPerson.Birthday}"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Clicker Count"
                            Width="100"/>
-                <TextBlock Text="{Binding SelectedPerson.ClickerCount}"/>
+                <TextBlock Text="{Binding MyMainViewModel.SelectedPerson.ClickerCount}"/>
             </StackPanel>
+            
         </StackPanel>
     </Grid>
 </UserControl>

@@ -9,37 +9,34 @@
              xmlns:ViewModels="clr-namespace:MVVMHierarchiesDemo.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <ViewModels:MainViewModel/>
-    </UserControl.DataContext>
+
     <Grid>
         <StackPanel>
-            <StackPanel.DataContext>
-                <ViewModels:MainViewModel/>
-            </StackPanel.DataContext>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name"
                            Width="100"/>
-                <TextBox Text="{Binding SelectedPerson.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Text="{Binding MyMainViewModel.SelectedPerson.Name}"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Age"
                            Width="100"/>
-                <TextBox Text="{Binding SelectedPerson.Age, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Text="{Binding MyMainViewModel.SelectedPerson.Age}"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Birthday"
                            Width="100"/>
-                <DatePicker Text="{Binding SelectedPerson.Birthday, UpdateSourceTrigger=PropertyChanged}"/>
+                <DatePicker SelectedDate="{Binding MyMainViewModel.SelectedPerson.Birthday}"/>
             </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
-                <StackPanel.DataContext>
-                    <ViewModels:EditViewModel/>
-                </StackPanel.DataContext>
                 <Button Content="Click the clicker!"
                         Width="100"
                         Command="{Binding ClickerClicked}"/>
             </StackPanel>
+            
         </StackPanel>
     </Grid>
 </UserControl>
